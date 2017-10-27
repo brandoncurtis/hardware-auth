@@ -1,5 +1,19 @@
 <html>
 <head>
 <script src="https://connect.trezor.io/2/connect.js"></script>
+<script>
+function getAddr() {
+  var path = "m/44'/60'/0'/0/0"
+  TrezorConnect.ethereumGetAddress(path, function(response) {
+    res = response
+    document.getElementById("addr").innerHTML = res['address'];
+    })
+}
+</script>
+
 <body>
 <h2>Hello World</h2>
+
+<button onclick="getAddr()" text="GET ADDRESS">
+
+Your address is: <div id="addr"></div>
